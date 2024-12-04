@@ -30,7 +30,7 @@ def playerInput(board):
 
 def checkHorizontle(board):
     global winner
-    if board[0] == board[1] == board[2] and board[1] != "-" :
+    if board[0] == board[1] == board[2] and board[0] != "-" :
         winner = board[0]
         return True
     elif board[3] == board[4] == board[5] and board[3] != "-" :
@@ -41,7 +41,7 @@ def checkHorizontle(board):
         return True       
 
 def checkRow(board):
-    global vainqueur
+    global winner
     if board[0] == board[3] == board[6] and board[0] != "-":
         winner = board[0]
         return True
@@ -73,6 +73,7 @@ def checkTie(board):
 
 def checkWin():
     if checkDiag(board) or checkHorizontle(board) or checkRow(board):
+        printboard(board)
         print(f"Le gagnant est {winner}")
         exit()
 
